@@ -22,9 +22,7 @@ lo pow_xy(lo x, int y) {
 int main() {
 	lo x;
 	lo l, r;
-	//cout <<numeric_limits<long long>::max();
 	scanf("%lld %lld %lld", &l, &r, &x);
-	//printf("%lld\t%lld\t%ld\n",l, r, x);
 	int dem = 0;
 	for(int i = 0; i <= 60; i++) {
 		if(pow_xy(x, i) >= l && pow_xy(x, i) <= r) {
