@@ -1,3 +1,31 @@
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main() {
+	int k;
+	cin >> k;
+	string a, b, c, x;
+	vector<string> vt_str;
+	cin.ignore();
+	for(int i = 0; i < k; i++) {
+		getline(cin, a, ' ');
+		getline(cin, b, ' ');
+		getline(cin, c);
+		x = a + b + c;
+		sort(x.begin(), x.end());
+		reverse(x.begin(), x.end());
+		vt_str.push_back(x);
+	}
+	vector<string>::iterator iter;
+	for (iter = vt_str.begin(); iter != vt_str.end(); iter++) {
+		cout << *iter << endl;
+	}
+	return 0;
+}
+
 // #include <iostream>
 // #include <cstring>
 // #include <algorithm>
@@ -41,31 +69,3 @@
 
 // 	return 0;
 // }
-
-#include <iostream>
-#include <cstring>
-#include <algorithm>
-#include <vector>
-using namespace std;
-
-int main() {
-	int k;
-	cin >> k;
-	string a, b, c, x;
-	vector<string> vt_str;
-	cin.ignore();
-	for(int i = 0; i < k; i++) {
-		getline(cin, a, ' ');
-		getline(cin, b, ' ');
-		getline(cin, c);
-		x = a + b + c;
-		sort(x.begin(), x.end());
-		reverse(x.begin(), x.end());
-		vt_str.push_back(x);
-	}
-	vector<string>::iterator iter;
-	for (iter = vt_str.begin(); iter != vt_str.end(); iter++) {
-		cout << *iter << endl;
-	}
-	return 0;
-}
