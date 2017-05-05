@@ -26,11 +26,6 @@ int main() {
 	else {
 		long* v = NULL;
 		v = new long[b - a + 1]();
-		//ll sum = 0;
-		// if(a == 1)
-		// 	sum = (b * (b + 1)) / 2 - (b - a);
-		// else 
-		// 	sum = (b * (b + 1)) / 2 - (a * (a - 1)) / 2 - (b - a + 1);
 		ll divisor, quotient, tmp;
 		for (i = 2; i <= sqrt(b); i++) {
 			quotient = b / i;
@@ -41,9 +36,7 @@ int main() {
 			}
 		}
 		for(i = 0; i < numElementArr; i++) {
-			//cout << v[i] << endl;
 			v[i] += (a + i - 1);
-			//cout <<"v la: "<< v [i]<< endl;
 			if(v[i] < 0) v[i] *= -1;
 			res += v[i];
 		}
