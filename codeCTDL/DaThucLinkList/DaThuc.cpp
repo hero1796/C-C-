@@ -8,7 +8,7 @@ struct Node {
 	item somu;
 	struct Node *next;
 };
-typedef struct Node *DaThuc;
+typedef struct Node* DaThuc;
 // Khoi tao da thuc
 void init(DaThuc &D) {
 	D = NULL;

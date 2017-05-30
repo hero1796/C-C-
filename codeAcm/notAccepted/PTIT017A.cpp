@@ -20,7 +20,6 @@ int main() {
         do {
         	num += 2;
         } while (!prime[num]);
-        cout << num << endl;
     }
     long a, b, k, quotient, temp, cnt;
     int t;
