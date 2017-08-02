@@ -1,4 +1,9 @@
 #ifndef UCLN_H
 #define UCLN_H
-int ucln(int , int);
+class ucln {
+public:
+	ucln();
+	~ucln();
+	int uc(int , int);
+};
 #endif

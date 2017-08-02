@@ -2,7 +2,15 @@
 #include "ucln.hpp"
 using namespace std;
 
-int ucln(int y, int z) {
+ucln::ucln() {
+
+}
+
+ucln::~ucln() {
+
+}
+
+int ucln::uc(int y, int z) {
 	int tmp;
 	while(y != 0) {
 		if(y > z) {

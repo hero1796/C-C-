@@ -1,22 +1,9 @@
 #include <iostream>
+#include "ucln.hpp"
 using namespace std;
 
-int ucln(int y, int z) {
-	int tmp;
-	while(y != 0) {
-		if(y > z) {
-			y = y%z;
-		} else {
-			
-			tmp = y;
-			y = z%y;
-			z = tmp;
-		}
-	}
-	return z;
-}
-
 int res() {
+	ucln u;
 	int n, x, y, z;
 	cin >> n >> x >> y >> z;
 	int a;
@@ -26,7 +13,7 @@ int res() {
 		if(n >= a) return a;
 		else return n;
 	}
-	int m = ucln(y, z);
+	int m = u.uc(y, z);
 	a = z/m;
 	if(n >= a) return a;
 	else return n;
