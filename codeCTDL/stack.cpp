@@ -1,65 +1,75 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
+
 struct Node {
-	int data;
-	Node *next;
+	int x;
+	Node* next;
 };
+
 struct Stack {
-	Node *top;
+	Node* top;
 };
-void initStack(Stack &s) {
-	s.top = NULL;
+
+void init(Stack* s) {
+	s->top = NULL;
 }
-Node *initNode(int x) {
-	Node *node = new Node;
-	node->data = x;
-	return node;
+
+int isEmpty(Stack* s) {
+	return s->top == NULL ? 1 : 0;
 }
-bool isEmpty(Stack &s) {
-	if(s.top == NULL) {
-		return true;
+
+int size(Stack* s) {
+	int cnt = 0;
+	Node* i = s->top;
+	while(i != NULL) {
+		cnt++;
+		i = i->next;
 	}
-	return false;
+	return cnt;
 }
-void push(Stack &s, int x) {
-	Node *node = initNode(x);
-		node->next = s.top;
-		s.top = node;
-}
-void pop(Stack &s) {
-	if(isEmpty(s) == true) {
-		cout<<"Ngan xep rong ! \n";
+
+int peak(Stack* s) {
+	if(isEmpty(s) == 0) {
+		return s->top->x;
 	} else {
-		Node *p = s.top;
-		s.top = s.top->next;
-		cout<<p->data<<"\t";
+		return -1;
 	}
 }
-void display(Stack &s) {
-	if(isEmpty(s) == true) {
-		cout<<"Ngan xep rong ! \n";
-	} else {
-		Node *i = s.top;
-		while(i != NULL) {
-			cout<<i->data<<"\t";
-			i = i->next;
+
+void push(int pX, Stack* s) {
+	Node* newNode = (Node*) malloc(sizeof(Node));
+	newNode->x = pX;
+	newNode->next = s->top;
+	s->top = newNode;
+}
+
+int pop(Stack* s) {
+	if(isEmpty(s) == 0) {
+		Node* tmp = s->top;
+		s->top = s->top->next;
+		return tmp->x;
+	}
+}
+
+int main() {
+	Stack* s = (Stack*) malloc(sizeof(Stack));
+	string str = "";
+	while(str != "end") {
+		getline(cin, str);
+		if(str == "init") {
+			init(s);
+		} else if(str.substr(0, str.find(" ")) == "push") {
+			push(stoi(str.substr(str.find(" ") + 1)), s);
+		} else if(str == "pop") {
+			pop(s);
+		} else if(str == "top") {
+			cout<<peak(s)<<"\n";
+		} else if(str == "size") {
+			cout<<size(s)<<"\n";
+		} else if(str == "empty") {
+			cout<<isEmpty(s)<<"\n";
 		}
 	}
-}
-int main() {
-	Stack s1;
-	initStack(s1);
-	int data, t1 = 1, t2 = 1;
-	while (t1==1) {
-		cout<<"\nNhap data : "; cin>>data;
-		push(s1, data);
-		cout<<"\nNhap 1 de tiep tuc : ";
-		cin>>t1;
-	}
-	display(s1);
-	while (t2==1) {
-		cout<<"\nNhap 1 de tiep tuc : ";
-		cin>>t2;
-		pop(s1);
-	}
+	return 0;
 }
