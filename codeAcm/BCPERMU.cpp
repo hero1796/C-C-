@@ -4,18 +4,16 @@
 #define MAX 100 
 #define TRUE 1 
 #define FALSE 0 
-int P[MAX], B[MAX], n, count = 0;
+int P[MAX], B[MAX], n;
 void Init(){
  printf("\n Nhap n="); scanf("%d", &n);
  for (int i = 1; i <= n; i++)
   B[i] = TRUE;
 }
 void Result(){
- count++;
- printf("\n Hoan vi thu %d:", count);
  for (int i = 1; i <= n; i++)
-  printf("%3d", P[i]);
- getch();
+  printf("%d", P[i]);
+	printf("\n");
 }
 void Try(int i){
  for (int j = 1; j <= n; j++){
